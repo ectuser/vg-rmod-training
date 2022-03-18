@@ -1,0 +1,28 @@
+{
+  "root": "apps/vg-rmod-fe-app-e2e",
+  "sourceRoot": "apps/vg-rmod-fe-app-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/vg-rmod-fe-app-e2e/cypress.json",
+        "devServerTarget": "vg-rmod-fe-app:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "vg-rmod-fe-app:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/vg-rmod-fe-app-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["vg-rmod-fe-app"]
+}
