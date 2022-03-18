@@ -2,12 +2,12 @@ import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'registration',
         loadChildren: (): Promise<unknown> => import('./feature/registration/registration.module').then((module) => module.RegistrationModule)
     },
     {
         path: '**',
-        redirectTo: '',
+        redirectTo: 'registration',
         pathMatch: 'full',
     },
 ];

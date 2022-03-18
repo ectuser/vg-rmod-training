@@ -1,0 +1,20 @@
+<section [formGroup]="form">
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <label for="first-name" class="form-label">Country</label>
+            <select id="first-name" class="form-select" formControlName="country">
+                <option *ngFor="let country of countryCodes" [value]="country.code">{{country.country}}</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="last-name" class="form-label">Phone number</label>
+            <div class="input-group">
+                <span class="input-group-text">+{{form.get('country')?.value}}</span>
+                <input type="text" id="last-name" class="form-control" formControlName="phoneNumber">
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Continue</button>
+    </div>
+</section>
