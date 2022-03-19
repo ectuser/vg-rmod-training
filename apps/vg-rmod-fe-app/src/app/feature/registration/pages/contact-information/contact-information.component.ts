@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'vg-rmod-training-contact-information',
@@ -18,4 +19,20 @@ export class ContactInformationComponent {
     country: new FormControl(this.countryCodes[0].code),
     phoneNumber: new FormControl()
   });
+
+  constructor(private modalService: NgbModal) {}
+
+  open(content: any) {
+    this.modalService.open(content, {
+      ariaLabelledBy: 'modal-basic-title', 
+      size: 'xl', 
+      centered: true, 
+      backdrop: 'static',
+      modalDialogClass: 'contact-information'
+    }).result.then((result) => {
+
+    }, (reason) => {
+
+    });
+  }
 }
