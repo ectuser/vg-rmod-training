@@ -13,7 +13,19 @@ import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, LayoutModule, NgbModule, SharedModule, StoreModule.forRoot({}, {}), StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }), EffectsModule.forRoot([])],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    LayoutModule,
+    NgbModule,
+    SharedModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([]),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
