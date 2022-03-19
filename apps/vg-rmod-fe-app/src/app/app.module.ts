@@ -12,9 +12,8 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { InfoEffects } from './reducers/info/info.effects';
 import { CountryEffects } from './reducers/country/country.effects';
-import { CountryFacade } from './reducers/country/country.facade';
-import { InfoFacade } from './reducers/info/info.facade';
 import { reducers } from './reducers';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +21,7 @@ import { reducers } from './reducers';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
+    HttpClientModule,
     NgbModule,
     SharedModule,
     StoreModule.forRoot(reducers, {}),
@@ -31,7 +31,6 @@ import { reducers } from './reducers';
     }),
     EffectsModule.forRoot([InfoEffects, CountryEffects]),
   ],
-  providers: [CountryFacade, InfoFacade],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

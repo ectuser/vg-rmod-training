@@ -16,7 +16,7 @@ describe('Country Reducer', () => {
         createCountryEntity('PRODUCT-AAA'),
         createCountryEntity('PRODUCT-zzz'),
       ];
-      const action = CountryActions.loadCountrySuccess({ country });
+      const action = CountryActions.loadCountrySuccess({ countries: country });
 
       const result: State = reducer(initialState, action);
 

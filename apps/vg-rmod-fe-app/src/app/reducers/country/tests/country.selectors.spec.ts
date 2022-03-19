@@ -37,7 +37,7 @@ describe('Country Selectors', () => {
 
   describe('Country Selectors', () => {
     it('getAllCountry() should return the list of Country', () => {
-      const results = CountrySelectors.getAllCountry(state);
+      const results = CountrySelectors.getAllCountries(state);
       const selId = getCountryId(results[1]);
 
       expect(results.length).toBe(3);

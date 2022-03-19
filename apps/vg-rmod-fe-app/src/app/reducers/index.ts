@@ -6,15 +6,18 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import * as fromInfo from './info/info.reducer';
+import * as InfoFeature from './info/info.reducer';
+import * as CountryFeature from './country/country.reducer';
 
 
 export interface State {
-  [fromInfo.INFO_FEATURE_KEY]: fromInfo.State
+  [InfoFeature.INFO_FEATURE_KEY]: InfoFeature.State;
+  [CountryFeature.COUNTRY_FEATURE_KEY]: CountryFeature.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  [fromInfo.INFO_FEATURE_KEY]: fromInfo.reducer
+  [InfoFeature.INFO_FEATURE_KEY]: InfoFeature.reducer,
+  [CountryFeature.COUNTRY_FEATURE_KEY]: CountryFeature.reducer
 };
 
 

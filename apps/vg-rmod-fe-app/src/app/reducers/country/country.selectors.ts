@@ -17,7 +17,7 @@ export const getCountryError = createSelector(
   (state: State) => state.error
 );
 
-export const getAllCountry = createSelector(getCountryState, (state: State) =>
+export const getAllCountries = createSelector(getCountryState, (state: State) =>
   selectAll(state)
 );
 

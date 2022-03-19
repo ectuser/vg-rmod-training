@@ -8,7 +8,7 @@ export const getInfoState = createFeatureSelector<State>(INFO_FEATURE_KEY);
 export const getFirstName = createSelector(getInfoState, (state) => state.firstName);
 export const getLastName = createSelector(getInfoState, (state) => state.lastName);
 export const getPhone = createSelector(getInfoState, (state) => state.phone);
-export const getFullPhone = createSelector(getPhone, CountrySelectors.getSelectedId, CountrySelectors.getAllCountry, (phone, country, countries) => {
+export const getFullPhone = createSelector(getPhone, CountrySelectors.getSelectedId, CountrySelectors.getAllCountries, (phone, country, countries) => {
   const code = countries.find((el) => el.country === country)?.code || '';
   return code + phone;
 });

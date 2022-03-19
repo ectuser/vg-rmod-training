@@ -3,7 +3,7 @@
         <div class="col-md-6">
             <label for="first-name" class="form-label">Country</label>
             <select id="first-name" class="form-select" formControlName="country">
-                <option *ngFor="let country of countryCodes" [value]="country.code">{{country.country}}</option>
+                <option *ngFor="let country of countryCodes$ | async" [value]="country.code">{{country.country}}</option>
             </select>
         </div>
         <div class="col-md-6">

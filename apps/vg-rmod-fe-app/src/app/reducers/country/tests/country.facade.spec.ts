@@ -86,7 +86,7 @@ describe('CountryFacade', () => {
 
       store.dispatch(
         CountryActions.loadCountrySuccess({
-          country: [createCountryEntity('AAA'), createCountryEntity('BBB')],
+          countries: [createCountryEntity('AAA'), createCountryEntity('BBB')],
         })
       );
 

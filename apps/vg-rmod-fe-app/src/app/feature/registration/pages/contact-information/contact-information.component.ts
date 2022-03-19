@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CountryFacade } from '../../../../reducers/country/country.facade';
 
 @Component({
   selector: 'vg-rmod-training-contact-information',
@@ -8,19 +9,19 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./contact-information.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContactInformationComponent {
-  readonly countryCodes = [
-    { country: 'US', code: '1' },
-    { country: 'PL', code: '48' },
-    { country: 'HU', code: '36' },
-  ];
+export class ContactInformationComponent implements OnInit {
+  readonly countryCodes$ = this.countryFacade.allCountries$;
 
   readonly form = new FormGroup({
-    country: new FormControl(this.countryCodes[0].code),
+    country: new FormControl(),
     phoneNumber: new FormControl()
   });
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private countryFacade: CountryFacade) {}
+
+  ngOnInit(): void {
+      this.countryFacade.init();
+  }
 
   open(content: any) {
     this.modalService.open(content, {
@@ -29,10 +30,6 @@ export class ContactInformationComponent {
       centered: true, 
       backdrop: 'static',
       modalDialogClass: 'contact-information'
-    }).result.then((result) => {
-
-    }, (reason) => {
-
     });
   }
 }

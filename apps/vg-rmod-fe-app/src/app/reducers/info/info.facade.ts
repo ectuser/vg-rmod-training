@@ -4,7 +4,9 @@ import * as InfoActions from './info.actions';
 import * as InfoSelectors from './info.selectors';
 import { PersonalInformation } from "./info.models";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class InfoFacade {
     readonly firstName$ = this.store.select(InfoSelectors.getFirstName);
     readonly lastName$ = this.store.select(InfoSelectors.getLastName);

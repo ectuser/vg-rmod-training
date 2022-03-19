@@ -31,7 +31,7 @@ describe('CountryEffects', () => {
       actions = hot('-a-|', { a: CountryActions.init() });
 
       const expected = hot('-a-|', {
-        a: CountryActions.loadCountrySuccess({ country: [] }),
+        a: CountryActions.loadCountrySuccess({ countries: [] }),
       });
 
       expect(effects.init$).toBeObservable(expected);
