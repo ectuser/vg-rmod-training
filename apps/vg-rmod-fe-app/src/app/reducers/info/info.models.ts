@@ -7,8 +7,3 @@ export interface ContactInformation {
     country: string;
     phone: string;
 }
-
-export interface Country {
-    country: string;
-    code: string;
-}

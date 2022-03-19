@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { InfoFacade } from 'apps/vg-rmod-fe-app/src/app/reducers/info/info.facade';
 
 @Component({
   selector: 'vg-rmod-training-personal-information',
@@ -14,10 +14,10 @@ export class PersonalInformationComponent {
     lastName: new FormControl('', Validators.required)
   }, {validators: this.validateName()});
 
-  constructor(private router: Router) {}
+  constructor(private readonly infoFacade: InfoFacade) {}
 
   submit() {
-    this.router.navigate(['/registration/contact-page']);
+    this.infoFacade.addPersonalInformation(this.form.value);
   }
 
   validateName(): ValidatorFn {

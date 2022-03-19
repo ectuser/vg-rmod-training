@@ -10,6 +10,11 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { InfoEffects } from './reducers/info/info.effects';
+import { CountryEffects } from './reducers/country/country.effects';
+import { CountryFacade } from './reducers/country/country.facade';
+import { InfoFacade } from './reducers/info/info.facade';
+import { reducers } from './reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,14 +24,14 @@ import { EffectsModule } from '@ngrx/effects';
     LayoutModule,
     NgbModule,
     SharedModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([InfoEffects, CountryEffects]),
   ],
-  providers: [],
+  providers: [CountryFacade, InfoFacade],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
