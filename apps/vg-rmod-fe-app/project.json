@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/vg-rmod-fe-app",
         "index": "apps/vg-rmod-fe-app/src/index.html",
@@ -18,7 +20,9 @@
           "apps/vg-rmod-fe-app/src/favicon.ico",
           "apps/vg-rmod-fe-app/src/assets"
         ],
-        "styles": ["apps/vg-rmod-fe-app/src/styles.scss"],
+        "styles": [
+          "apps/vg-rmod-fe-app/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -83,7 +87,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/vg-rmod-fe-app"],
+      "outputs": [
+        "coverage/apps/vg-rmod-fe-app"
+      ],
       "options": {
         "jestConfig": "apps/vg-rmod-fe-app/jest.config.js",
         "passWithNoTests": true
