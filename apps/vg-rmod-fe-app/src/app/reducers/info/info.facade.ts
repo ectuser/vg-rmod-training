@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import * as InfoActions from './info.actions';
 import * as InfoSelectors from './info.selectors';
-import { PersonalInformation } from "./info.models";
+import { ContactInformation, PersonalInformation } from "./info.models";
 
 @Injectable({
     providedIn: 'root'
@@ -16,5 +16,9 @@ export class InfoFacade {
 
     addPersonalInformation(info: PersonalInformation) {
         this.store.dispatch(InfoActions.addPersonalInformation(info));
+    }
+
+    addContactInformation(info: ContactInformation) {
+        this.store.dispatch(InfoActions.addContactInformation(info));
     }
 }

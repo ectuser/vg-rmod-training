@@ -36,3 +36,5 @@ export const getSelected = createSelector(
   getSelectedId,
   (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
 );
+
+export const getSelectedName = createSelector(getSelected, (country) => country?.country);

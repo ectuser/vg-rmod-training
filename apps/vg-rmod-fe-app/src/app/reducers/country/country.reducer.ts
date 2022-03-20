@@ -18,7 +18,7 @@ export interface CountryPartialState {
 
 export const countryAdapter: EntityAdapter<CountryEntity> =
   createEntityAdapter<CountryEntity>({
-    selectId: (model: CountryEntity) => model.country
+    selectId: (model: CountryEntity) => model.code
   });
 
 export const initialState: State = countryAdapter.getInitialState({
@@ -38,6 +38,10 @@ const countryReducer = createReducer(
   on(CountryActions.loadCountryFailure, (state, { error }): State => ({
     ...state,
     error,
+  })),
+  on(CountryActions.setSelectedCountry, (state, {country}): State => ({
+    ...state,
+    selectedId: country
   }))
 );
 

@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, ChangeDetectionStrategy, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { InfoFacade } from 'apps/vg-rmod-fe-app/src/app/reducers/info/info.facade';
 import { CountryFacade } from '../../../../reducers/country/country.facade';
 
 @Component({
@@ -10,26 +11,39 @@ import { CountryFacade } from '../../../../reducers/country/country.facade';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactInformationComponent implements OnInit {
+  @ViewChild('modal') modal?: TemplateRef<any>;
+
   readonly countryCodes$ = this.countryFacade.allCountries$;
+  readonly firstName$ = this.infoFacade.firstName$;
+  readonly lastName$ = this.infoFacade.lastName$;
+  readonly country$ = this.countryFacade.selectedCountry$;
+  readonly phone$ = this.infoFacade.phone$;
 
   readonly form = new FormGroup({
-    country: new FormControl(),
-    phoneNumber: new FormControl()
+    country: new FormControl('', Validators.required),
+    phone: new FormControl('', Validators.required)
   });
 
-  constructor(private modalService: NgbModal, private countryFacade: CountryFacade) {}
+  constructor(
+    private readonly modalService: NgbModal, 
+    private readonly countryFacade: CountryFacade, 
+    private readonly infoFacade: InfoFacade
+  ) {}
 
   ngOnInit(): void {
       this.countryFacade.init();
   }
 
-  open(content: any) {
-    this.modalService.open(content, {
-      ariaLabelledBy: 'modal-basic-title', 
-      size: 'xl', 
-      centered: true, 
-      backdrop: 'static',
-      modalDialogClass: 'contact-information'
-    });
+  open() {
+    this.infoFacade.addContactInformation(this.form.value);
+    if (this.modal) {
+      this.modalService.open(this.modal, {
+        ariaLabelledBy: 'modal-basic-title', 
+        size: 'xl', 
+        centered: true, 
+        backdrop: 'static',
+        modalDialogClass: 'contact-information'
+      });
+    }
   }
 }

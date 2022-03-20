@@ -32,7 +32,7 @@ export class CountryEffects {
       this.actions$.pipe(
         ofType(InfoActions.addContactInformation),
         map((action) => {
-          return CountryActions.setSelectedCountry({country: action.phone})
+          return CountryActions.setSelectedCountry({country: action.country})
         })
       )
   );

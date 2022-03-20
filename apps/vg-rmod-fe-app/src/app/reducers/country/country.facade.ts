@@ -11,7 +11,7 @@ export class CountryFacade {
 
   readonly loaded$ = this.store.select(CountrySelectors.getCountryLoaded);
   readonly allCountries$ = this.store.select(CountrySelectors.getAllCountries);
-  readonly selectedCountry$ = this.store.select(CountrySelectors.getSelected);
+  readonly selectedCountry$ = this.store.select(CountrySelectors.getSelectedName);
 
   constructor(private readonly store: Store) {}
 
