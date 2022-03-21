@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { InfoFacade } from 'apps/vg-rmod-fe-app/src/app/reducers/info/info.facade';
 import { CountryFacade } from '../../../../reducers/country/country.facade';
+import { InfoFacade } from '../../../../reducers/info/info.facade';
 
 @Component({
   selector: 'vg-rmod-training-contact-information',
@@ -17,7 +17,7 @@ export class ContactInformationComponent implements OnInit {
   readonly firstName$ = this.infoFacade.firstName$;
   readonly lastName$ = this.infoFacade.lastName$;
   readonly country$ = this.countryFacade.selectedCountry$;
-  readonly phone$ = this.infoFacade.phone$;
+  readonly phone$ = this.infoFacade.fullPhone$;
 
   readonly form = new FormGroup({
     country: new FormControl('', Validators.required),

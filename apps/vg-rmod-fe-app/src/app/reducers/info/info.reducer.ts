@@ -8,22 +8,26 @@ export interface State {
   firstName?: string;
   lastName?: string;
   phone?: string;
+  firstStepPassed: boolean;
 }
 
 export interface InfoPartialState {
   readonly [INFO_FEATURE_KEY]: State;
 }
 
-export const initialState: State = {};
+export const initialState: State = {
+  firstStepPassed: false,
+};
 
 const infoReducer = createReducer(
   initialState,
-  on(InfoActions.addPersonalInformation, (state, {firstName, lastName}) => ({
+  on(InfoActions.addPersonalInformation, (state, {firstName, lastName}): State => ({
     ...state, 
     firstName,
-    lastName
+    lastName,
+    firstStepPassed: true
   })),
-  on(InfoActions.addContactInformation, (state, {phone}) => ({
+  on(InfoActions.addContactInformation, (state, {phone}): State => ({
     ...state,
     phone
   }))

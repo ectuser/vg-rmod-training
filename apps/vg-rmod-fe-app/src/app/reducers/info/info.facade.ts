@@ -8,9 +8,10 @@ import { ContactInformation, PersonalInformation } from "./info.models";
     providedIn: 'root'
 })
 export class InfoFacade {
-    readonly firstName$ = this.store.select(InfoSelectors.getFirstName);
-    readonly lastName$ = this.store.select(InfoSelectors.getLastName);
-    readonly phone$ = this.store.select(InfoSelectors.getFullPhone);
+    readonly firstName$ = this.store.select(InfoSelectors.selectFirstName);
+    readonly lastName$ = this.store.select(InfoSelectors.selectLastName);
+    readonly fullPhone$ = this.store.select(InfoSelectors.selectFullPhone);
+    readonly firstStepPassed$ = this.store.select(InfoSelectors.selectFirstStepPassed);
 
     constructor(private readonly store: Store) {}
 

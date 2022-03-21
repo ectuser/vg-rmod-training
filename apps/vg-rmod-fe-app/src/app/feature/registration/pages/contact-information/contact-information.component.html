@@ -10,7 +10,7 @@
             <label for="last-name" class="form-label">Phone number</label>
             <div class="input-group">
                 <span class="input-group-text">+{{form.get('country')?.value}}</span>
-                <input type="text" id="last-name" class="form-control" formControlName="phone">
+                <input mask='(000) 000-0000' type="text" id="last-name" class="form-control" formControlName="phone">
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
             <span class="col-6 col-lg-3 col-md-4">Country</span><span class="col-6 col-lg-3 col-md-4">{{country$ | async}}</span>
           </div>
           <div class="row">
-            <span class="col-6 col-lg-3 col-md-4">Phone Number</span><span class="col-6 col-lg-3 col-md-4">+1 {{phone$ | async}}</span>
+            <span class="col-6 col-lg-3 col-md-4">Phone Number</span><span class="col-6 col-lg-3 col-md-4">{{phone$ | async}}</span>
           </div>
       </section>
     </div>
