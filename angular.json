@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "vg-rmod-be": "apps/vg-rmod-be",
     "vg-rmod-fe-app": "apps/vg-rmod-fe-app",
     "vg-rmod-fe-app-e2e": "apps/vg-rmod-fe-app-e2e"
   }
