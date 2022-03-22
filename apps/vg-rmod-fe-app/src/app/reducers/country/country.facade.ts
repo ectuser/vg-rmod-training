@@ -9,9 +9,9 @@ import * as CountrySelectors from './country.selectors';
 })
 export class CountryFacade {
 
-  readonly loaded$ = this.store.select(CountrySelectors.getCountryLoaded);
-  readonly allCountries$ = this.store.select(CountrySelectors.getAllCountries);
-  readonly selectedCountry$ = this.store.select(CountrySelectors.getSelectedName);
+  readonly loaded$ = this.store.select(CountrySelectors.selectCountryLoaded);
+  readonly allCountries$ = this.store.select(CountrySelectors.selectAllCountries);
+  readonly selectedCountry$ = this.store.select(CountrySelectors.selectSelectedName);
 
   constructor(private readonly store: Store) {}
 

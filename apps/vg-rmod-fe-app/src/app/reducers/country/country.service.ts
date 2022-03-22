@@ -1,18 +1,18 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from "rxjs";
-import { CountryEntity } from "./country.models";
+import { Observable} from "rxjs";
+import { CountryEntity } from "@vg-rmod-training/shared-models";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class CountryService {
+    readonly url = environment.api;
+
     constructor(private readonly httpClient: HttpClient) {}
     
     getCountries(): Observable<CountryEntity[]> {
-        return of([
-            { country: 'US', code: '1' },
-            { country: 'PL', code: '48' }]
-        );
+        return this.httpClient.get<CountryEntity[]>(this.url + '/country-codes');
     }
 }

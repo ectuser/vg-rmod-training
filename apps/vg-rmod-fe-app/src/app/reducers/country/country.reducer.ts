@@ -2,7 +2,7 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on, Action } from '@ngrx/store';
 
 import * as CountryActions from './country.actions';
-import { CountryEntity } from './country.models';
+import { CountryEntity } from "@vg-rmod-training/shared-models";
 
 export const COUNTRY_FEATURE_KEY = 'country';
 

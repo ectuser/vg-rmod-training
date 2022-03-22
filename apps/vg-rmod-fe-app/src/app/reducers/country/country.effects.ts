@@ -22,6 +22,7 @@ export class CountryEffects {
         },
         onError: (action, error) => {
           console.error('Error', error);
+          alert('Error: Could not load the countries list');
           return CountryActions.loadCountryFailure({ error });
         },
       })

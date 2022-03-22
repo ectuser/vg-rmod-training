@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { CountryEntity } from './country.models';
+import { CountryEntity } from "@vg-rmod-training/shared-models";
 
 export const init = createAction('[Country Page] Init');
 
