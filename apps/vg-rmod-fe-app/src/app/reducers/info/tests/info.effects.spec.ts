@@ -6,8 +6,8 @@ import { NxModule } from '@nrwl/angular';
 import { hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
 
-import * as InfoActions from './info.actions';
-import { InfoEffects } from './info.effects';
+import * as InfoActions from '../info.actions';
+import { InfoEffects } from '../info.effects';
 
 describe('InfoEffects', () => {
   let actions: Observable<Action>;

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable} from "rxjs";
 import { CountryEntity } from "@vg-rmod-training/shared-models";
-import { environment } from "../../../environments/environment";
+import { environment } from "@vg-rmod-training/vg-rmod-fe-app/environments/environment";
 
 @Injectable({
     providedIn: 'root'

@@ -14,13 +14,12 @@ export class CountryEffects {
     this.actions$.pipe(
       ofType(CountryActions.init),
       fetch({
-        run: (action) => {
-          // Your custom service 'load' logic goes here. For now just return a success action...
+        run: () => {
           return this.countryService.getCountries().pipe(map((countries) => {
             return CountryActions.loadCountrySuccess({ countries: countries });
           }))
         },
-        onError: (action, error) => {
+        onError: (_, error) => {
           console.error('Error', error);
           alert('Error: Could not load the countries list');
           return CountryActions.loadCountryFailure({ error });

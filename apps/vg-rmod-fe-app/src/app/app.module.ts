@@ -14,6 +14,8 @@ import { InfoEffects } from './reducers/info/info.effects';
 import { CountryEffects } from './reducers/country/country.effects';
 import { reducers } from './reducers';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { ContentEffects } from './reducers/content/content.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([InfoEffects, CountryEffects]),
+    EffectsModule.forRoot([InfoEffects, CountryEffects, ContentEffects]),
+    StoreRouterConnectingModule.forRoot()
   ],
   bootstrap: [AppComponent],
 })

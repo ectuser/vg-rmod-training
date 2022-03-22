@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@vg-rmod-training/shared-models": ["libs/shared-models/src/index.ts"]
+      "@vg-rmod-training/shared-models": ["libs/shared-models/src/index.ts"],
+      "@vg-rmod-training/vg-rmod-fe-app/*": ["apps/vg-rmod-fe-app/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

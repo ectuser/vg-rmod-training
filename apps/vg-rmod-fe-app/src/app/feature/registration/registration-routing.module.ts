@@ -6,12 +6,18 @@ import { PersonalInformationComponent } from "./pages/personal-information/perso
 const routes: Routes = [
     {
         path: 'personal-information',
-        component: PersonalInformationComponent
+        component: PersonalInformationComponent,
+        data: {
+            pageId: 'personalInformation'
+        }
     },
     {
         path: 'contact-page',
         component: ContactInformationComponent,
-        canActivate: [FormStepsGuard]
+        canActivate: [FormStepsGuard],
+        data: {
+            pageId: 'contactPage'
+        }
     },
     {
         path: '**',

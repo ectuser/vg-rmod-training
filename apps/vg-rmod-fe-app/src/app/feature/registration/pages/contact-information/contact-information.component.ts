@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DestroyService } from '@vg-rmod-training/vg-rmod-fe-app/app/core/services/destroy.service';
+import { CountryFacade } from '@vg-rmod-training/vg-rmod-fe-app/app/reducers/country/country.facade';
+import { InfoFacade } from '@vg-rmod-training/vg-rmod-fe-app/app/reducers/info/info.facade';
 import { takeUntil } from 'rxjs';
-import { DestroyService } from '../../../../core/services/destroy.service';
-import { CountryFacade } from '../../../../reducers/country/country.facade';
-import { InfoFacade } from '../../../../reducers/info/info.facade';
 
 @Component({
   selector: 'vg-rmod-training-contact-information',
